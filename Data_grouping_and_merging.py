@@ -7,11 +7,6 @@ import os
 import numpy as np
 
 
-
-directory = r'D:/JADS/Case_studies/Omron/diagnostics/data'
-onlyfiles = [f for f in listdir(directory) if isfile(join(directory, f))]
-
-             
 class files_to_df(object):
     
     '''
@@ -56,7 +51,7 @@ class files_to_df(object):
             df_names=['Date','time','minimum', 'maximum', 'wire resistance'] + resistances 
             appended_data = []
             for file in self.all_channels[key]:
-                path =  os.path.join(directory, file)
+                path =  os.path.join(self.directory, file)
                 print (path)
                 array = pd.read_csv(path, 
                                     encoding='cp1252',
@@ -66,6 +61,7 @@ class files_to_df(object):
                                     names= df_names,
                                     parse_dates=[[0,1]]
                                     )
+
                 appended_data.append(array)
             appended_data = pd.concat(appended_data, axis=0)
             df[key] = appended_data

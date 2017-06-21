@@ -1,3 +1,4 @@
 #Files that should be ignored
 .ipynb_checkpoints/
 /data
+configuration.py

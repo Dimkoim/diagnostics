@@ -1,5 +1,4 @@
 #Files that should be ignored
 .ipynb_checkpoints/
 /data
-/configuration.py
-EDA.py
+diagnostics/EDA.py

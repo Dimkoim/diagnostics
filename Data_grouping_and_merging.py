@@ -5,6 +5,7 @@ from itertools import groupby
 import pandas as pd 
 import os 
 import numpy as np
+import configuration as conf
 
 
 class files_to_df(object):
@@ -66,3 +67,5 @@ class files_to_df(object):
             appended_data = pd.concat(appended_data, axis=0)
             df[key] = appended_data
         return df
+if __name__ == "__main__":
+    c = files_to_df(conf.directory).df()
